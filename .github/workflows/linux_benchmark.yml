@@ -1,0 +1,15 @@
+﻿name: Physical Linux I/O Benchmark
+on: [push]
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Run Real Physical Block I/O Test on ext4 SSD
+        run: |
+          python real_io_benchmark.py
+          cat real_io_latency_results.json
