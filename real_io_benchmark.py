@@ -3,7 +3,7 @@ import time
 import statistics
 import json
 
-WORKSPACE = r"E:\hermes\workspace\s3"
+WORKSPACE = os.path.dirname(os.path.abspath(__file__))
 RESULTS_PATH = os.path.join(WORKSPACE, "real_io_latency_results.json")
 REPORT_PATH = os.path.join(WORKSPACE, "ACOS_REPRODUCTION_HIP.md")
 TEST_FILE = os.path.join(WORKSPACE, "test_io_block.dat")
@@ -80,3 +80,4 @@ Based on actual disk I/O metrics, the `Visor` routing layer must tag objects as 
 if __name__ == "__main__":
     data = run_real_experiment()
     update_hip_report(data)
+
